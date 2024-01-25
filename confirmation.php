@@ -25,7 +25,7 @@ session_start();
             $userId = $_SESSION['idKunde'];
 
             // Gjør klar SQL-strengen for å hente kundeinformasjon
-            $customerQuery = "SELECT * FROM users WHERE idKunde = ?";
+            $customerQuery = "SELECT * FROM kunde WHERE idKunde = ?";
             $customerStmt = mysqli_prepare($dbc, $customerQuery);
             mysqli_stmt_bind_param($customerStmt, "i", $userId);
             mysqli_stmt_execute($customerStmt);
