@@ -19,7 +19,7 @@ session_start();
         // Check if the user is logged in
         if (isset($_SESSION['idKunde'])) {
             // Koble til databasen
-            $dbc = mysqli_connect('localhost', 'root', 'admin', 'skohubben') or die('Error connecting to MySQL server');
+            $dbc = mysqli_connect('localhost', 'root', '', 'skohubben') or die('Error connecting to MySQL server');
 
             // Get the user ID from the session
             $userId = $_SESSION['idKunde'];
