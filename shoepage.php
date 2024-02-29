@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-<?php include 'etter.php';
-  ?>
+<?php include 'etter.php';?>
 </body>
 </html>
