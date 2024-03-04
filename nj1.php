@@ -90,31 +90,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 <h6>Home / Sko</h6>
                 <h4>Nike Jordan 1</h4>
                 <h2>kr 1999</h2>
-                <select name="selectedSize">
-                    <?php
-                    // Koble til databasen
-                    $dbc = mysqli_connect('localhost', 'root', '', 'skohubben') or die('Error connecting to MySQL server');
+                    <select name="selectedSize">
+                        <?php
+                        // Koble til databasen
+                        $dbc = mysqli_connect('localhost', 'root', '', 'skohubben') or die('Error connecting to MySQL server');
 
-                    // Escape the user input to prevent SQL injection
-                    $productName = mysqli_real_escape_string($dbc, 'Nike Jordan 1');
+                        // Escape the user input to prevent SQL injection
+                        $productName = mysqli_real_escape_string($dbc, 'Nike Jordan 1');
 
-                    // Fetch sizes for the specified product from the "produkter" table
-                    $query = "SELECT Størrelse FROM produkter WHERE Type = '$productName'";
-                    $result = mysqli_query($dbc, $query) or die('Error querying database.');
+                        // Fetch sizes for the specified product from the "produkter" table
+                        $query = "SELECT Størrelse FROM produkter WHERE Type = '$productName'";
+                        $result = mysqli_query($dbc, $query) or die('Error querying database.');
 
-                    // Loop through all sizes
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Display each size as an option
-                        echo "<option value='" . $row["Størrelse"] . "'>" . $row["Størrelse"] . "</option>";
-                    }
+                        // Loop through all sizes
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            // Display each size as an option
+                            echo "<option value='" . $row["Størrelse"] . "'>" . $row["Størrelse"] . "</option>";
+                        }
 
-                    // Close the result set
-                    mysqli_free_result($result);
+                        // Close the result set
+                        mysqli_free_result($result);
 
-                    // Close the database connection
-                    mysqli_close($dbc);
-                    ?>
-                </select>
+                        // Close the database connection
+                        mysqli_close($dbc);
+                        ?>
+                    </select>
 
 
 
